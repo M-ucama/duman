@@ -105,7 +105,7 @@
      Gallery + Lightbox
   --------------------------------------------------------- */
   const galleryData = [
-    { src: 'assets/duman-1.jpg', alt: 'Duman the cat lying on her back on a light-colored armchair, tongue out, looking at the camera', caption: 'Look at this face.' },
+    { src: 'assets/duman-1.jpg', alt: 'Duman the cat lying on his back on a light-colored armchair, tongue out, looking at the camera', caption: 'Look at this face.' },
     { src: 'assets/duman-2.jpg', alt: 'Duman as a small kitten sitting on a blanket on an office chair, looking directly at the camera', caption: 'Absolutely illegal levels of cuteness.' }
   ];
 
@@ -247,7 +247,7 @@
   const messages = [
     'Duman approves.',
     'One more pet.',
-    'She is judging you.',
+    'He is judging you.',
     'Duman has accepted your presence.',
     'You may continue.'
   ];

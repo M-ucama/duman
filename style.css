@@ -32,9 +32,10 @@
    Reset
 =========================================================== */
 *, *::before, *::after{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 body{
   margin:0;
+  width: 100%;
   background: var(--ink);
   color: var(--cream);
   font-family: var(--sans);
@@ -42,7 +43,12 @@ body{
   overflow-x: hidden;
 }
 img{ max-width:100%; display:block; }
-button{ font-family: inherit; cursor:pointer; }
+button{
+  font-family: inherit;
+  cursor:pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 h1,h2,h3,p{ margin:0; }
 a{ color: inherit; }
 
@@ -171,7 +177,8 @@ a{ color: inherit; }
 =========================================================== */
 .mode-toggle{
   position: fixed;
-  top: 22px; right: 22px;
+  top: max(22px, env(safe-area-inset-top));
+  right: max(22px, env(safe-area-inset-right));
   z-index: 60;
 }
 .mode-btn{
@@ -254,8 +261,9 @@ body.duman-mode{
 =========================================================== */
 .hero{
   position: relative;
+  height: 100vh;
   height: 100svh;
-  min-height: 560px;
+  min-height: 460px;
   width: 100%;
   overflow: hidden;
   display:flex;
@@ -392,7 +400,6 @@ body.duman-mode{
   width:100%; height:100%; object-fit: cover;
   transition: transform 0.7s var(--ease);
 }
-.gallery-item:hover img{ transform: scale(1.06); }
 .gallery-item:focus-visible{ outline: 2px solid var(--copper-bright); outline-offset:4px; }
 .gallery-glow{
   position:absolute; inset:-2px;
@@ -401,9 +408,6 @@ body.duman-mode{
   transition: box-shadow 0.4s var(--ease);
   pointer-events:none;
 }
-.gallery-item:hover .gallery-glow{
-  box-shadow: 0 0 46px 6px var(--copper-dim);
-}
 .gallery-item::after{
   content:"";
   position:absolute; inset:0;
@@ -411,7 +415,6 @@ body.duman-mode{
   opacity: 0.75;
   transition: opacity 0.4s var(--ease);
 }
-.gallery-item:hover::after{ opacity: 0.9; }
 .gallery-caption{
   position:absolute; left:22px; right:22px; bottom:20px;
   z-index:2;
@@ -424,7 +427,18 @@ body.duman-mode{
   opacity: 0.85;
   transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
 }
-.gallery-item:hover .gallery-caption{ transform: translateY(0); opacity:1; }
+/* On touch, always show captions at rest (no hover to reveal them) */
+@media (hover: none){
+  .gallery-caption{ transform: translateY(0); opacity: 1; }
+  .gallery-item::after{ opacity: 0.9; }
+}
+/* Hover-only affordances — devices with a real pointer (mouse/trackpad) */
+@media (hover: hover) and (pointer: fine){
+  .gallery-item:hover img{ transform: scale(1.06); }
+  .gallery-item:hover .gallery-glow{ box-shadow: 0 0 46px 6px var(--copper-dim); }
+  .gallery-item:hover::after{ opacity: 0.9; }
+  .gallery-item:hover .gallery-caption{ transform: translateY(0); opacity:1; }
+}
 
 /* ===========================================================
    LIGHTBOX
@@ -500,9 +514,11 @@ body.duman-mode{
   box-shadow: 0 30px 80px rgba(0,0,0,0.4);
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
-.video-card:hover{
-  transform: scale(1.012);
-  box-shadow: 0 34px 100px rgba(0,0,0,0.5), 0 0 60px var(--copper-dim);
+@media (hover: hover) and (pointer: fine){
+  .video-card:hover{
+    transform: scale(1.012);
+    box-shadow: 0 34px 100px rgba(0,0,0,0.5), 0 0 60px var(--copper-dim);
+  }
 }
 .feature-video{
   width:100%; height:100%; object-fit: cover; display:block;
@@ -524,10 +540,12 @@ body.duman-mode{
   display:flex; align-items:center; justify-content:center;
   transition: transform 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-.play-toggle:hover{
-  transform: translate(-50%,-50%) scale(1.08);
-  background: rgba(21,18,15,0.7);
-  box-shadow: 0 0 40px var(--copper-dim);
+@media (hover: hover) and (pointer: fine){
+  .play-toggle:hover{
+    transform: translate(-50%,-50%) scale(1.08);
+    background: rgba(21,18,15,0.7);
+    box-shadow: 0 0 40px var(--copper-dim);
+  }
 }
 .play-toggle .icon-play{ margin-left: 3px; }
 
@@ -547,7 +565,9 @@ body.duman-mode{
   grid-template-columns: 110px 1fr 48px;
   align-items:center;
   gap: 18px;
+  min-width: 0;
 }
+.stat-label, .stat-num{ min-width: 0; }
 .stat-label{
   font-size: 15px;
   color: var(--ash);
@@ -728,10 +748,12 @@ body.duman-mode{
 
 /* ===========================================================
    Responsive
+   Breakpoints: 1024 (tablet) / 860 (small tablet) / 480 (phone) / 380 (small phone)
 =========================================================== */
 @media (max-width: 1024px){
   .container{ padding: 0 26px; }
   .gallery{ padding: 0 26px; }
+  .stats-list{ padding: 0 26px; }
 }
 
 @media (max-width: 860px){
@@ -740,24 +762,60 @@ body.duman-mode{
   .gallery-item--small{ margin-top: 0; }
   .gallery-item--large, .gallery-item--small{ aspect-ratio: 4/5; }
   .stat-row{ grid-template-columns: 84px 1fr 40px; gap: 12px; }
+  .video-card{ border-radius: var(--radius-md); }
+}
+
+@media (max-width: 640px){
+  .hero-title{ letter-spacing: 0; }
+  .video-section .container{ margin-bottom: 36px; }
+  .play-toggle{ width: 62px; height: 62px; }
+  .pet-btn{ width: 100%; }
 }
 
 @media (max-width: 480px){
-  .hero-content{ padding: 0 18px; }
+  .hero-content{ padding: 0 18px; max-width: 100%; }
   .hero-quote{ max-width: 300px; }
-  .section{ padding: 80px 0; }
+  .hero-cta{ padding: 14px 24px; font-size: 14px; }
+  .section{ padding: 72px 0; }
   .container{ padding: 0 20px; }
   .gallery{ padding: 0 20px; }
-  .mode-toggle{ top: 14px; right: 14px; }
-  .mode-btn{ padding: 8px 13px; font-size: 12px; }
-  .lightbox-nav{ width: 42px; height: 42px; }
-  .lightbox-prev{ left: 8px; }
-  .lightbox-next{ right: 8px; }
-  .lightbox-close{ top: 14px; right: 14px; width:38px; height:38px; }
-  .pet-card{ padding: 44px 22px; }
-  .turkish-section{ padding: 80px 0; }
+  .gallery-caption{ font-size: 15px; left: 18px; right: 18px; bottom: 16px; }
+  .stats-list{ padding: 0 20px; gap: 22px; }
+  .mode-toggle{ top: max(14px, env(safe-area-inset-top)); right: max(14px, env(safe-area-inset-right)); }
+  .mode-btn{ padding: 9px 14px; font-size: 12px; }
+  .lightbox-nav{ width: 44px; height: 44px; }
+  .lightbox-prev{ left: 6px; }
+  .lightbox-next{ right: 6px; }
+  .lightbox-close{ top: max(14px, env(safe-area-inset-top)); right: max(14px, env(safe-area-inset-right)); width: 40px; height: 40px; }
+  .lightbox-figure figcaption{ font-size: 15px; padding: 0 12px; }
+  .pet-card{ padding: 40px 20px; }
+  .pet-btn{ padding: 15px 28px; }
+  .turkish-section{ padding: 72px 0; }
+  .turkish-line{ font-size: 18px; }
+  .final-content{ padding: 0 20px; }
+}
+
+/* Small phones: 360-390px devices */
+@media (max-width: 380px){
+  .hero-title{ font-size: 56px; }
+  .hero-kicker{ font-size: 13px; }
+  .hero-quote{ font-size: 14px; max-width: 260px; }
+  .section-title{ font-size: 24px; }
+  .lede{ font-size: 16px; }
+  .stat-row{ grid-template-columns: 68px 1fr 36px; gap: 10px; }
+  .stat-label{ font-size: 13px; }
+  .stat-num{ font-size: 13px; }
+  .note-text{ font-size: 19px; }
+  .final-title{ font-size: 30px; }
 }
 
 @media (min-width: 1440px){
   .container{ max-width: 1280px; }
+}
+
+/* Landscape phones: keep hero from feeling too cramped when short + wide */
+@media (max-height: 480px) and (orientation: landscape){
+  .hero{ min-height: 420px; }
+  .hero-cta{ margin-top: 24px; }
+  .hero-quote{ display: none; }
 }
