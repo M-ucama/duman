@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Duman — My Favorite Little Cloud</title>
-<meta name="description" content="A small cinematic tribute to Duman, a very good Turkish cat.">
+<title>دُمان — في ذكرى سحابتي الصغيرة</title>
+<meta name="description" content="صفحة ذكرى لدُمان، قطّنا التركي الجميل. ستبقى في قلوبنا دائمًا.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,460;0,9..144,560;1,9..144,460&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,460;1,9..144,460&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,70 +15,53 @@
 <!-- Intro -->
 <div class="intro" id="intro" aria-hidden="true">
   <div class="intro-fog"></div>
-  <span class="intro-word">DUMAN</span>
+  <span class="intro-word">دُمان</span>
 </div>
 
-<!-- Custom cursor glow -->
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-<!-- Duman Mode particles -->
+<!-- Slow floating embers -->
 <div class="particle-field" id="particleField" aria-hidden="true"></div>
-
-<!-- Duman Mode toggle -->
-<div class="mode-toggle">
-  <button id="dumanModeBtn" class="mode-btn" aria-pressed="false">
-    <span class="mode-dot" aria-hidden="true"></span>
-    Duman Mode
-  </button>
-</div>
 
 <main id="top">
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <video
-      class="hero-video"
-      id="heroVideo"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster="assets/duman-1.jpg"
-      aria-label="Video of Duman the cat">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata"
+           poster="assets/duman-1.jpg" aria-label="فيديو لدُمان">
       <source src="assets/duman-video.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
     <div class="grain" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <p class="hero-kicker reveal-up" data-delay="0">a small corner of the internet for</p>
-      <h1 class="hero-title reveal-up" data-delay="1">DUMAN</h1>
-      <p class="hero-sub reveal-up" data-delay="2">My favorite little cloud.</p>
-      <p class="hero-quote reveal-up" data-delay="3">&ldquo;Some cats just exist. Duman makes an entrance.&rdquo;</p>
-      <button class="hero-cta reveal-up magnetic" data-delay="4" id="meetBtn">
-        <span>Meet Duman</span>
+      <p class="hero-kicker reveal-up" data-delay="0">في ذكرى</p>
+      <h1 class="hero-title reveal-up" data-delay="1">دُمان</h1>
+      <p class="hero-latin reveal-up" data-delay="1" lang="tr" dir="ltr">Duman</p>
+      <p class="hero-sub reveal-up" data-delay="2">سحابتي الصغيرة، وستبقى كذلك دائمًا.</p>
+      <p class="hero-quote reveal-up" data-delay="3">«بعض القطط تمرّ فقط، أما دُمان فترك أثرًا في كل مكان.»</p>
+      <button class="hero-cta reveal-up" data-delay="4" id="meetBtn">
+        <span>تعالَ نتذكّره</span>
         <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M8 2V14M8 14L3 9M8 14L13 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
 
-    <div class="scroll-hint" aria-hidden="true">
-      <span class="scroll-line"></span>
-    </div>
+    <div class="scroll-hint" aria-hidden="true"><span class="scroll-line"></span></div>
   </section>
 
   <!-- ABOUT -->
   <section class="section about" id="about">
     <div class="container narrow">
-      <p class="eyebrow reveal">who is duman</p>
+      <p class="eyebrow reveal">من هو دُمان</p>
       <h2 class="section-title reveal">
-        Duman. A tiny Turkish cloud with absolutely no idea how cute he is.
+        غيمة رمادية صغيرة، لم تكن تعرف كم كانت تُحَبّ.
       </h2>
       <p class="lede reveal">
-        He's not just a cat in a few pictures. He's one of those tiny things
-        that somehow makes a day better.
+        دُمان لم يكن مجرد قط في بضع صور. كان من تلك الأشياء الصغيرة التي
+        تجعل اليوم أخفّ وأجمل دون أن تفهم كيف.
+      </p>
+      <p class="lede reveal">
+        رحل جسده الصغير، لكن مكانه في القلب باقٍ، ولن يملأه أحد.
       </p>
     </div>
   </section>
@@ -86,36 +69,36 @@
   <!-- GALLERY -->
   <section class="section gallery-section" id="gallery">
     <div class="container">
-      <p class="eyebrow reveal">the gallery</p>
-      <h2 class="section-title reveal">A couple of moments worth keeping.</h2>
+      <p class="eyebrow reveal">الصور</p>
+      <h2 class="section-title reveal">لحظات سنحتفظ بها للأبد.</h2>
     </div>
 
     <div class="gallery" id="galleryGrid">
-      <button class="gallery-item gallery-item--large tilt" data-index="0" aria-label="Open photo: Look at this face.">
-        <img src="assets/duman-1.jpg" alt="Duman the cat lying on his back on a light-colored armchair, tongue out, looking at the camera" loading="lazy">
+      <button class="gallery-item gallery-item--large" data-index="0" aria-label="افتح الصورة: بهذا الوجه كان يأخذ قلوبنا">
+        <img src="assets/duman-1.jpg" alt="دُمان مستلقٍ على ظهره فوق كنبة فاتحة، يُخرج لسانه ويحدّق في الكاميرا" loading="lazy">
         <div class="gallery-glow" aria-hidden="true"></div>
-        <span class="gallery-caption">Look at this face.</span>
+        <span class="gallery-caption">بهذا الوجه كان يأخذ قلوبنا.</span>
       </button>
 
-      <button class="gallery-item gallery-item--small tilt" data-index="1" aria-label="Open photo: Absolutely illegal levels of cuteness.">
-        <img src="assets/duman-2.jpg" alt="Duman as a small kitten sitting on a blanket on an office chair, looking directly at the camera" loading="lazy">
+      <button class="gallery-item gallery-item--small" data-index="1" aria-label="افتح الصورة: صغيرًا، كما بدأ كل شيء">
+        <img src="assets/duman-2.jpg" alt="دُمان وهو صغير، جالس على بطانية فوق كرسي مكتب ينظر مباشرة إلى الكاميرا" loading="lazy">
         <div class="gallery-glow" aria-hidden="true"></div>
-        <span class="gallery-caption">Absolutely illegal levels of cuteness.</span>
+        <span class="gallery-caption">صغيرًا، كما بدأ كل شيء.</span>
       </button>
     </div>
   </section>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="عارض الصور" hidden>
     <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="إغلاق">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 4L18 18M18 4L4 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 3L5 10L12 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="الصورة السابقة">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8 3L15 10L8 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="الصورة التالية">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 3L5 10L12 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <figure class="lightbox-figure">
       <img src="" alt="" id="lightboxImg">
@@ -123,117 +106,104 @@
     </figure>
   </div>
 
-  <!-- VIDEO SECTION -->
+  <!-- VIDEO -->
   <section class="section video-section" id="video">
     <div class="container narrow center">
-      <p class="eyebrow reveal">okay, enough pictures</p>
-      <h2 class="section-title reveal">Watch Duman being Duman.</h2>
+      <p class="eyebrow reveal">ذكرى تتحرّك</p>
+      <h2 class="section-title reveal">دُمان كما كان.</h2>
     </div>
 
     <div class="video-card reveal" id="videoCard">
-      <video
-        id="featureVideo"
-        class="feature-video"
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="assets/duman-2.jpg">
+      <video id="featureVideo" class="feature-video" muted loop playsinline preload="metadata" poster="assets/duman-2.jpg">
         <source src="assets/duman-video.mp4" type="video/mp4">
       </video>
       <div class="video-vignette" aria-hidden="true"></div>
-      <button class="play-toggle" id="playToggle" aria-label="Play video">
-        <svg class="icon-play" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M6 4L18 11L6 18V4Z" fill="currentColor"/></svg>
+      <button class="play-toggle" id="playToggle" aria-label="تشغيل الفيديو">
+        <svg class="icon-play" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M18 4L6 11L18 18V4Z" fill="currentColor" transform="translate(22 0) scale(-1 1)"/></svg>
         <svg class="icon-pause" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true" hidden><path d="M5 3H9V19H5V3Z" fill="currentColor"/><path d="M13 3H17V19H13V3Z" fill="currentColor"/></svg>
       </button>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="section stats-section" id="stats">
-    <div class="container narrow">
-      <p class="eyebrow reveal">for the record</p>
-      <h2 class="section-title reveal">Duman's unofficial statistics.</h2>
-    </div>
+  <!-- WHAT REMAINS -->
+  <section class="section remains-section" id="remains">
+    <div class="container">
+      <p class="eyebrow reveal">ما تركه لنا</p>
+      <h2 class="section-title reveal">أشياء صغيرة لن ننساها.</h2>
 
-    <div class="stats-list">
-      <div class="stat-row reveal" data-value="100">
-        <span class="stat-label">Cuteness</span>
-        <div class="stat-track"><div class="stat-fill"></div></div>
-        <span class="stat-num">0%</span>
-      </div>
-      <div class="stat-row reveal" data-value="90">
-        <span class="stat-label">Chaos</span>
-        <div class="stat-track"><div class="stat-fill"></div></div>
-        <span class="stat-num">0%</span>
-      </div>
-      <div class="stat-row reveal" data-value="100">
-        <span class="stat-label">Sleep</span>
-        <div class="stat-track"><div class="stat-fill"></div></div>
-        <span class="stat-num">0%</span>
-      </div>
-      <div class="stat-row reveal" data-value="100">
-        <span class="stat-label">Attitude</span>
-        <div class="stat-track"><div class="stat-fill"></div></div>
-        <span class="stat-num">0%</span>
-      </div>
-      <div class="stat-row reveal" data-value="100">
-        <span class="stat-label">Tiny paws</span>
-        <div class="stat-track"><div class="stat-fill"></div></div>
-        <span class="stat-num">0%</span>
+      <div class="remains-grid">
+        <article class="remain-card reveal">
+          <h3>نظرته</h3>
+          <p>عينان تفهمان كل شيء دون أن تقولا شيئًا.</p>
+        </article>
+        <article class="remain-card reveal">
+          <h3>شقاوته</h3>
+          <p>فوضى صغيرة كانت تملأ البيت حياة.</p>
+        </article>
+        <article class="remain-card reveal">
+          <h3>نومه</h3>
+          <p>كان ينام في كل مكان، وكأن العالم كله سريره.</p>
+        </article>
+        <article class="remain-card reveal">
+          <h3>كفوفه الصغيرة</h3>
+          <p>خفيفة، دافئة، وأثرها باقٍ في القلب.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- TURKISH TOUCH -->
+  <!-- NAME MEANING -->
   <section class="section turkish-section" id="turkish">
     <div class="container narrow center">
-      <p class="turkish-name reveal">Duman</p>
-      <p class="turkish-line reveal">&ldquo;Ben Duman.&rdquo;</p>
-      <p class="turkish-line reveal">&ldquo;Çok tatlı.&rdquo;</p>
-      <p class="turkish-translation reveal">very cute</p>
+      <p class="turkish-name reveal" lang="tr" dir="ltr">Duman</p>
+      <p class="turkish-line reveal">اسمه بالتركية يعني «الدخان»</p>
+      <p class="turkish-translation reveal">غيمة خفيفة مرّت بحياتنا وتركت فيها دفئًا لا يزول.</p>
     </div>
   </section>
 
-  <!-- PET DUMAN -->
-  <section class="section pet-section" id="pet">
+  <!-- CANDLE -->
+  <section class="section candle-section" id="candle">
     <div class="container narrow center">
-      <div class="pet-card" id="petCard">
-        <p class="eyebrow reveal">go on, try it</p>
-        <h2 class="section-title reveal">Pet Duman.</h2>
-        <button class="pet-btn magnetic" id="petBtn">
-          <span>Pet Duman</span>
-        </button>
-        <p class="pet-message" id="petMessage" aria-live="polite">&nbsp;</p>
+      <p class="eyebrow reveal">شمعة لدُمان</p>
+      <h2 class="section-title reveal">أشعل شمعة تذكُّرًا له.</h2>
+
+      <div class="candle-stage reveal" id="candleStage">
+        <div class="candle-glow" aria-hidden="true"></div>
+        <div class="candle-row" id="candleRow" aria-hidden="true"></div>
       </div>
+
+      <button class="candle-btn" id="candleBtn">
+        <span>أشعل شمعة</span>
+      </button>
+      <p class="candle-message" id="candleMessage" aria-live="polite">&nbsp;</p>
     </div>
   </section>
 
   <!-- PERSONAL NOTE -->
   <section class="section note-section" id="note">
     <div class="container narrow">
-      <p class="eyebrow reveal">a little note</p>
+      <p class="eyebrow reveal">رسالة صغيرة</p>
       <p class="note-text reveal">
-        I just wanted to make a tiny corner of the internet for Duman,
-        because some cats deserve their own website.
+        صنعتُ هذا الركن الصغير على الإنترنت لدُمان، لأن بعض القطط
+        تستحق أن يبقى لها بيت يُذكَر فيه اسمها دائمًا.
       </p>
-      <p class="note-text note-text--bold reveal">I really like this cat.</p>
-      <p class="note-fine reveal">Yes, just the cat. We're friends.</p>
+      <p class="note-text note-text--bold reveal">أحببتُ هذا القط كثيرًا، وسأظل.</p>
+      <p class="note-fine reveal">شكرًا لأنك كنتَ جزءًا من أيامنا، يا دُمان.</p>
     </div>
   </section>
 
   <!-- FINAL -->
   <section class="section final-section" id="final">
-    <img src="assets/duman-1.jpg" alt="Duman the cat resting" class="final-bg" loading="lazy">
+    <img src="assets/duman-1.jpg" alt="دُمان مستريحًا" class="final-bg" loading="lazy">
     <div class="final-scrim"></div>
     <div class="final-content reveal">
-      <h2 class="final-title">Goodnight, Duman.</h2>
-      <p class="final-sub">See you around, little cloud.</p>
+      <h2 class="final-title">نَم بسلام يا دُمان.</h2>
+      <p class="final-sub">ستبقى سحابتنا الصغيرة في السماء وفي القلب.</p>
     </div>
   </section>
 
   <footer class="footer">
-    <p>Made with questionable amounts of affection for a cat.</p>
+    <p>صُنع بكثير من الحب لقطٍّ لا يُنسى.</p>
   </footer>
 
 </main>
